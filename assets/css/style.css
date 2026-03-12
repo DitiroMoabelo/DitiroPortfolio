@@ -972,7 +972,7 @@ a {
 .about-image {
     width: 100%;
     height: 100%;
-    min-height: 200px;
+    min-height: 150px;
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-strong);
     object-fit: cover;
@@ -1618,7 +1618,7 @@ button:focus-visible {
     }
     
     .about-image {
-        height: 170px;
+        height: 130px;
     }
     
     .featured-project-card {
@@ -1715,7 +1715,7 @@ button:focus-visible {
     }
 
     .about-image {
-        height: 190px;
+        height: 145px;
     }
 
     .featured-project-card {
@@ -1837,7 +1837,7 @@ button:focus-visible {
     }
     
     .about-image {
-        height: 150px;
+        height: 115px;
     }
     
     .about-text {
@@ -1961,7 +1961,7 @@ button:focus-visible {
     }
     
     .about-image {
-        height: 130px;
+        height: 100px;
     }
     
     .about-text {
@@ -2164,7 +2164,7 @@ button:focus-visible {
     }
     
     .about-image {
-        height: 110px;
+        height: 85px;
     }
     
     .education-grid {

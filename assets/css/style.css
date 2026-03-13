@@ -1249,6 +1249,7 @@ a {
 .contact-content {
     position: relative;
     z-index: 1;
+    padding-bottom: 110px;
 }
 
 .contact-info {
@@ -1283,6 +1284,8 @@ a {
 
 .contact-item a {
     color: var(--text-secondary);
+    overflow-wrap: anywhere;
+    word-break: break-word;
     transition: color 0.3s ease;
 }
 
@@ -1292,6 +1295,8 @@ a {
 
 .contact-item span {
     color: var(--text-secondary);
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 /* ============================================
@@ -1732,6 +1737,15 @@ button:focus-visible {
         gap: 2rem;
     }
 
+    .hero {
+        min-height: auto;
+        padding-bottom: 6.5rem;
+    }
+
+    .wave-1 {
+        height: 70px;
+    }
+
     .hero-title {
         font-size: 2rem;
     }
@@ -1914,6 +1928,14 @@ button:focus-visible {
     
     .contact-info {
         padding: 2rem;
+    }
+
+    .contact-content {
+        padding-bottom: 85px;
+    }
+
+    .contact-item {
+        align-items: flex-start;
     }
 
     .experience-company {
@@ -2163,7 +2185,25 @@ button:focus-visible {
     
     .hero {
         padding-top: 70px;
-        min-height: 90vh;
+        min-height: auto;
+        padding-bottom: 6rem;
+    }
+
+    .hero .btn {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .contact-content {
+        padding-bottom: 70px;
+    }
+
+    #back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
     }
 }
 

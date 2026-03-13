@@ -180,6 +180,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.75rem;
 }
 
 .logo {
@@ -188,6 +189,7 @@ a {
     font-weight: 400;
     letter-spacing: 0.02em;
     color: var(--text-primary);
+    white-space: nowrap;
     transition: color 0.3s ease;
 }
 
@@ -343,8 +345,8 @@ a {
 }
 
 .blob-shape {
-    width: 450px;
-    height: 450px;
+    width: min(450px, 88vw);
+    height: min(450px, 88vw);
     border-radius: var(--radius-blob);
     background: linear-gradient(135deg, var(--pink-medium) 0%, var(--purple-medium) 100%);
     padding: 10px;
@@ -487,30 +489,30 @@ a {
     width: 100%;
     height: 100px;
     background: var(--bg-primary);
-    clip-path: polygon(0 30%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
     z-index: 1;
     transition: background-color 0.3s ease;
 }
 
 .wave-1 {
-    clip-path: polygon(0 30%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
     background: var(--bg-primary);
     transition: background-color 0.3s ease;
 }
 
 .wave-2 {
-    clip-path: polygon(0 0%, 100% 20%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
     background: var(--purple-light);
 }
 
 .wave-3 {
-    clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
     background: var(--bg-primary);
     transition: background-color 0.3s ease;
 }
 
 .wave-4 {
-    clip-path: polygon(0 0%, 100% 30%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
     background: var(--bg-primary);
     transition: background-color 0.3s ease;
 }
@@ -1636,6 +1638,8 @@ button:focus-visible {
         flex-direction: column;
         background: var(--bg-secondary);
         width: 100%;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
         text-align: center;
         transition: 0.3s;
         box-shadow: var(--shadow-medium);
@@ -1724,6 +1728,10 @@ button:focus-visible {
 }
 
 @media (max-width: 768px) {
+    .hero-content {
+        gap: 2rem;
+    }
+
     .hero-title {
         font-size: 2rem;
     }
@@ -1907,6 +1915,10 @@ button:focus-visible {
     .contact-info {
         padding: 2rem;
     }
+
+    .experience-company {
+        white-space: normal;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1924,14 +1936,27 @@ button:focus-visible {
     
     .logo {
         font-size: 1.2rem;
+        max-width: 48vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav-social {
+        gap: 0.6rem;
+    }
+
+    .nav-menu {
+        top: 64px;
+        max-height: calc(100vh - 64px);
     }
     
     .hero-title {
-        font-size: 1.75rem;
+        font-size: 1.65rem;
+        padding: 0.85rem 1rem;
     }
     
     .hero-subtitle {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
     }
     
     .section-title {
@@ -1950,8 +1975,8 @@ button:focus-visible {
     }
     
     .blob-shape {
-        width: 250px;
-        height: 250px;
+        width: min(250px, 78vw);
+        height: min(250px, 78vw);
     }
     
     .about-images-grid {

@@ -27,13 +27,17 @@ while ($listener.IsListening) {
         $extension = [System.IO.Path]::GetExtension($filePath)
         
         # Set content type
-        $contentType = "text/html"
+        $contentType = "text/html; charset=utf-8"
         switch ($extension) {
-            ".css" { $contentType = "text/css" }
-            ".js" { $contentType = "application/javascript" }
+            ".css" { $contentType = "text/css; charset=utf-8" }
+            ".js" { $contentType = "application/javascript; charset=utf-8" }
             ".jpg" { $contentType = "image/jpeg" }
             ".jpeg" { $contentType = "image/jpeg" }
             ".png" { $contentType = "image/png" }
+            ".gif" { $contentType = "image/gif" }
+            ".svg" { $contentType = "image/svg+xml" }
+            ".webp" { $contentType = "image/webp" }
+            ".ico" { $contentType = "image/x-icon" }
             ".pdf" { $contentType = "application/pdf" }
         }
         

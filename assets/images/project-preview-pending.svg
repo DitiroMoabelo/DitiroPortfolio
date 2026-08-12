@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Screenshot not yet available">
+  <rect width="400" height="300" fill="#FDECF2"/>
+  <g stroke="#F7C7D3" stroke-width="1" opacity="0.85">
+    <path d="M0 25h400M0 50h400M0 75h400M0 100h400M0 125h400M0 150h400M0 175h400M0 200h400M0 225h400M0 250h400M0 275h400"/>
+    <path d="M25 0v300M50 0v300M75 0v300M100 0v300M125 0v300M150 0v300M175 0v300M200 0v300M225 0v300M250 0v300M275 0v300M300 0v300M325 0v300M350 0v300M375 0v300"/>
+  </g>
+  <g transform="translate(200 128)">
+    <rect x="-46" y="-34" width="92" height="68" rx="8" fill="#FFF7EE" stroke="#3A2F33" stroke-width="3"/>
+    <circle cx="-26" cy="-14" r="7" fill="#DCC6E8" stroke="#3A2F33" stroke-width="2.5"/>
+    <path d="M-46 22l28-26 20 18 14-12 30 26v6a8 8 0 0 1-8 8h-76a8 8 0 0 1-8-8z" fill="#C7D8A5" stroke="#3A2F33" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+  <text x="200" y="205" text-anchor="middle" font-family="Poppins, Segoe UI, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#3A2F33">Screenshot coming soon</text>
+</svg>

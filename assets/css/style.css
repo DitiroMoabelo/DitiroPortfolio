@@ -763,6 +763,14 @@ a {
     font-size: 1.1rem;
 }
 
+.project-proof {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--pink-medium);
+    padding-left: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
 .featured-buttons {
     display: flex;
     gap: 1rem;
@@ -1475,18 +1483,8 @@ a {
     100% { transform: none;         text-shadow: none; }
 }
 
-/* --- Section title retro brackets --- */
-.section-title::before {
-    content: '[ ';
-    color: var(--pink-medium);
-    opacity: 0.8;
-}
-
-.section-title::after {
-    content: ' ]';
-    color: var(--pink-medium);
-    opacity: 0.8;
-}
+/* Section titles are decorated with spinning records
+   in the retro music layer at the end of this file. */
 
 /* --- Retro boot loader overlay --- */
 #retro-loader {
@@ -1499,7 +1497,7 @@ a {
     align-items: center;
     justify-content: center;
     gap: 1.25rem;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.28s ease;
 }
 
 #retro-loader.hide {
@@ -2360,4 +2358,458 @@ button:focus-visible {
         padding-left: 1.5rem;
     }
 }
+
+/* ============================================
+   SOLAR SYSTEM LAYER — SOFT PLANETS & STARS
+   Same palette. Restrained, low-contrast
+   decoration that sits behind the content.
+   ============================================ */
+
+@keyframes star-twinkle {
+    0%, 100% { opacity: 0.4; }
+    50%      { opacity: 0.7; }
+}
+
+@keyframes orbit-travel {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes moon-orbit {
+    to { transform: rotate(360deg); }
+}
+
+/* --- Soft pastel planet --- */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.4;
+    background:
+        radial-gradient(circle at 34% 27%,
+            rgba(255, 255, 255, 0.5) 0 14%,
+            transparent 14% 100%),
+        radial-gradient(circle at 63% 71%,
+            var(--purple-medium) 0 38%,
+            var(--pink-medium) 38% 100%);
+    box-shadow: inset -8px -10px 20px rgba(0, 0, 0, 0.10);
+    /* Vertical movement comes from the scroll parallax in script.js,
+       which writes transform directly on these elements. */
+    will-change: transform;
+}
+
+/* Slim ring for the Saturn-style planet */
+.planet--ringed::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -30%;
+    right: -30%;
+    height: 34%;
+    transform: translateY(-50%) rotate(-16deg);
+    border: 2px solid var(--purple-medium);
+    border-radius: 50%;
+    opacity: 0.55;
+}
+
+.planet-1 {
+    top: 13%;
+    right: 8%;
+    width: 128px;
+    height: 128px;
+}
+
+.planet-2 {
+    bottom: 17%;
+    left: 7%;
+    width: 66px;
+    height: 66px;
+    opacity: 0.32;
+    background:
+        radial-gradient(circle at 34% 27%,
+            rgba(255, 255, 255, 0.5) 0 16%,
+            transparent 16% 100%),
+        radial-gradient(circle at 63% 71%,
+            var(--green-medium) 0 40%,
+            var(--blue-light) 40% 100%);
+}
+
+.planet-3 {
+    top: 20%;
+    left: 8%;
+    width: 84px;
+    height: 84px;
+    opacity: 0.3;
+}
+
+/* --- Starfield drawn from one element --- */
+.star-field {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    animation: star-twinkle 9s ease-in-out infinite;
+    background-image:
+        radial-gradient(2px 2px at 14% 21%, var(--pink-medium) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 31% 11%, var(--purple-medium) 50%, transparent 51%),
+        radial-gradient(2px 2px at 67% 17%, var(--pink-medium) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 84% 33%, var(--purple-medium) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 23% 61%, var(--purple-medium) 50%, transparent 51%),
+        radial-gradient(2px 2px at 53% 77%, var(--pink-medium) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 77% 67%, var(--pink-medium) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 44% 39%, var(--purple-medium) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 91% 54%, var(--pink-medium) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 8% 44%, var(--purple-medium) 50%, transparent 51%);
+}
+
+/* --- Orbit ring around the hero portrait --- */
+.hero-image-wrapper {
+    position: relative;
+}
+
+.hero-orbit {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    width: min(510px, 92vw);
+    height: min(510px, 92vw);
+    border: 2px solid var(--purple-medium);
+    border-radius: 50%;
+    opacity: 0.3;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: orbit-travel 42s linear infinite;
+}
+
+.hero-orbit::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    margin-left: -7.5px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 34% 28%,
+            rgba(255, 255, 255, 0.6) 0 24%,
+            transparent 24% 100%),
+        radial-gradient(circle at 64% 72%, var(--purple-medium), var(--pink-medium));
+}
+
+.blob-shape {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Small star accents on section titles --- */
+.section-title::before,
+.section-title::after {
+    content: '\2726';
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0.4em;
+    color: var(--pink-medium);
+    opacity: 0.7;
+}
+
+.section-title::before {
+    margin-right: 0.55em;
+}
+
+.section-title::after {
+    margin-left: 0.55em;
+}
+
+/* --- Faint orbit rings behind the featured project --- */
+.featured-project::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    background: repeating-radial-gradient(circle at 88% 10%,
+        transparent 0 42px,
+        var(--purple-medium) 42px 43px);
+}
+
+/* --- Tiny planet bullet before each tech list --- */
+.project-tech::before,
+.featured-tech::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 11px;
+    height: 11px;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 34% 28%,
+            rgba(255, 255, 255, 0.6) 0 24%,
+            transparent 24% 100%),
+        radial-gradient(circle at 64% 72%, var(--purple-medium), var(--pink-medium));
+}
+
+/* --- Category card icons as soft planets --- */
+.card-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 32% 26%,
+            rgba(255, 255, 255, 0.55) 0 16%,
+            transparent 16% 100%),
+        radial-gradient(circle at 64% 72%,
+            var(--purple-light) 0 40%,
+            var(--pink-medium) 40% 100%);
+    box-shadow: inset -6px -8px 16px rgba(0, 0, 0, 0.08), var(--shadow-soft);
+    transition: transform 0.4s ease;
+}
+
+.category-card:hover .card-icon {
+    transform: translateY(-4px);
+}
+
+/* --- Back to top as a little planet --- */
+#back-to-top {
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 32% 26%,
+            rgba(255, 255, 255, 0.5) 0 18%,
+            transparent 18% 100%),
+        radial-gradient(circle at 64% 72%,
+            var(--purple-medium) 0 40%,
+            var(--pink-medium) 40% 100%);
+}
+
+#back-to-top:hover {
+    background:
+        radial-gradient(circle at 32% 26%,
+            rgba(255, 255, 255, 0.55) 0 18%,
+            transparent 18% 100%),
+        radial-gradient(circle at 64% 72%,
+            var(--pink-medium) 0 40%,
+            var(--purple-medium) 40% 100%);
+}
+
+/* --- Boot loader: planet with an orbiting moon --- */
+.loader-system {
+    position: relative;
+    width: 104px;
+    height: 104px;
+    display: grid;
+    place-items: center;
+}
+
+.loader-system__planet {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 32% 26%,
+            rgba(255, 255, 255, 0.55) 0 18%,
+            transparent 18% 100%),
+        radial-gradient(circle at 64% 72%,
+            var(--purple-medium) 0 40%,
+            var(--pink-medium) 40% 100%);
+    box-shadow: inset -5px -6px 12px rgba(0, 0, 0, 0.10);
+}
+
+.loader-system__orbit {
+    position: absolute;
+    inset: 0;
+    border: 1.5px dashed var(--purple-medium);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: moon-orbit 3.6s linear infinite;
+}
+
+.loader-system__orbit::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    border-radius: 50%;
+    background: var(--pink-medium);
+    box-shadow: 0 0 0 3px var(--bg-primary);
+}
+
+/* --- Constellation skill map ---
+   Each category becomes a small constellation: a hub star under the
+   heading with faint spokes reaching out to every skill chip. The
+   geometry is measured in script.js because the chips reflow. */
+.skill-category {
+    position: relative;
+}
+
+.constellation {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.constellation__spoke {
+    stroke: var(--purple-medium);
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    opacity: 0.5;
+    transition: stroke-dashoffset 900ms ease-out;
+}
+
+.constellation__hub,
+.constellation__halo,
+.constellation__star {
+    fill: var(--pink-medium);
+    opacity: 0;
+    transition: opacity 700ms ease-out;
+}
+
+.skill-category.is-drawn .constellation__hub {
+    opacity: 0.95;
+}
+
+.skill-category.is-drawn .constellation__halo {
+    opacity: 0.22;
+}
+
+.skill-category.is-drawn .constellation__star {
+    opacity: 0.85;
+}
+
+/* Chips and heading sit above the spokes, so the lines read as
+   threads running behind them. */
+.skill-category h3,
+.skill-chips {
+    position: relative;
+    z-index: 1;
+    /* Opens a band between the heading and the chips so the spokes
+       have somewhere to be seen; the chips are opaque. */
+    padding-top: 2.6rem;
+}
+
+/* --- Star map behind the skills grid --- */
+.skills-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.planet-4 {
+    top: 11%;
+    right: 4%;
+    width: 76px;
+    height: 76px;
+    opacity: 0.26;
+}
+
+/* --- Footer moon phases --- */
+.footer-moons {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.9rem;
+}
+
+.footer-moons span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--cream);
+}
+
+.footer-moons span:nth-child(1) { opacity: 0.28; }
+.footer-moons span:nth-child(2) { opacity: 0.5; }
+.footer-moons span:nth-child(3) { opacity: 0.85; width: 15px; height: 15px; }
+.footer-moons span:nth-child(4) { opacity: 0.5; }
+.footer-moons span:nth-child(5) { opacity: 0.28; }
+
+/* --- Responsive trims --- */
+/* The hero stacks at 968px and the portrait shrinks, so the
+   orbit ring is resized alongside it at each breakpoint. */
+@media (max-width: 968px) {
+    .planet-1 {
+        top: 7%;
+        width: 92px;
+        height: 92px;
+    }
+
+    .planet-3 {
+        width: 68px;
+        height: 68px;
+    }
+
+    .hero-orbit {
+        width: 310px;
+        height: 310px;
+    }
+}
+
+@media (max-width: 768px) {
+    .planet,
+    .star-field {
+        display: none;
+    }
+
+    .hero-orbit {
+        width: 360px;
+        height: 360px;
+    }
+
+    .card-icon {
+        width: 68px;
+        height: 68px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-orbit {
+        width: min(305px, 92vw);
+        height: min(305px, 92vw);
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-orbit {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* --- Respect reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+    .star-field,
+    .hero-orbit,
+    .loader-system__orbit {
+        animation: none !important;
+    }
+
+    /* Constellations still draw, just instantly. */
+    .constellation__spoke,
+    .constellation__hub,
+    .constellation__halo,
+    .constellation__star {
+        transition: none !important;
+    }
+}
+
+/* End of solar system layer. */
 

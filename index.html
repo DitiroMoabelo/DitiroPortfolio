@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Ditiro Moabelo | Software Developer Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" as="image" href="assets/images/myphoto1.jpeg" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&family=Lilita+One&family=Pacifico&display=swap" rel="stylesheet">
@@ -13,6 +14,10 @@
 <body>
     <!-- Retro Boot Loader -->
     <div id="retro-loader">
+        <div class="loader-system" aria-hidden="true">
+            <div class="loader-system__planet"></div>
+            <div class="loader-system__orbit"></div>
+        </div>
         <p class="loader-logo">DITIRO</p>
         <p class="loader-label">BOOTING...</p>
         <div class="loader-bar-wrapper">
@@ -61,12 +66,16 @@
             <div class="flower-decoration flower-1"></div>
             <div class="flower-decoration flower-2"></div>
             <div class="flower-decoration flower-3"></div>
+            <div class="star-field" aria-hidden="true" data-parallax="18"></div>
+            <div class="planet planet--ringed planet-1" aria-hidden="true" data-parallax="70"></div>
+            <div class="planet planet-2" aria-hidden="true" data-parallax="45"></div>
         </div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-image-wrapper">
+                    <div class="hero-orbit" aria-hidden="true"></div>
                     <div class="blob-shape">
-                        <img src="assets/images/myphoto1.jpeg" alt="Ditiro Moabelo" class="hero-image">
+                        <img src="assets/images/myphoto1.jpeg" alt="Ditiro Moabelo" class="hero-image" width="853" height="1280" fetchpriority="high" decoding="async">
                     </div>
                 </div>
                 <div class="hero-text">
@@ -154,10 +163,10 @@
             <div class="about-content">
                 <div class="about-image-wrapper">
                     <div class="about-images-grid">
-                        <img src="assets/images/myphoto2.jpeg" alt="Ditiro Moabelo" class="about-image" loading="lazy">
-                        <img src="assets/images/myphoto3.jpeg" alt="Ditiro Moabelo" class="about-image" loading="lazy">
-                        <img src="assets/images/IMG1.jpg" alt="Ditiro Moabelo" class="about-image" loading="lazy">
-                        <img src="assets/images/IMG2.jpg" alt="Ditiro Moabelo" class="about-image" loading="lazy">
+                        <img src="assets/images/myphoto2.jpeg" alt="Ditiro Moabelo" class="about-image" width="720" height="1280" loading="lazy" decoding="async">
+                        <img src="assets/images/myphoto3.jpeg" alt="Ditiro Moabelo" class="about-image" width="720" height="1280" loading="lazy" decoding="async">
+                        <img src="assets/images/about-img1.jpg" alt="Ditiro Moabelo" class="about-image" width="800" height="1422" loading="lazy" decoding="async">
+                        <img src="assets/images/about-img2.jpg" alt="Ditiro Moabelo" class="about-image" width="800" height="1067" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div class="about-text">
@@ -195,7 +204,7 @@
     <section id="projects" class="featured-project">
         <div class="featured-background">
             <div class="featured-image-overlay">
-                <img src="assets/images/myphoto2.jpeg" alt="Featured Work Background" class="featured-bg-image" loading="lazy">
+                <img src="assets/images/myphoto2.jpeg" alt="" aria-hidden="true" class="featured-bg-image" width="720" height="1280" loading="lazy" decoding="async">
             </div>
             <div class="wave-divider wave-2"></div>
         </div>
@@ -204,12 +213,14 @@
                 <h2 class="section-title">Featured Work</h2>
                 <div class="featured-project-card">
                     <div class="featured-image">
-                        <img src="https://image.thum.io/get/width/1200/https://thedimoganegas.netlify.app/" loading="lazy" alt="Thedimogane Gas ordering site screenshot">
+                        <img src="assets/images/thedimoganegas-screenshot.jpg" width="1200" height="1200" loading="lazy" decoding="async" alt="Thedimogane Gas ordering site screenshot">
                     </div>
                     <div class="featured-details">
                         <h3>Thedimogane Gas — Live Business Site</h3>
                         <p class="featured-tech">HTML • CSS • JavaScript • Netlify</p>
-                        <p>A working ordering site for a real LPG gas supplier in Norkem Park, serving over 500 customers. Visitors compare cylinder sizes and current refill prices, check whether their suburb falls in a delivery area, and place an order straight through WhatsApp — no app install or payment gateway required. A refill-reminder sign-up brings customers back before they run out.</p>
+                        <p>A live ordering site for a real LPG supplier serving Norkem Park and nearby areas. I rebuilt the sales flow around the way the business actually operates: customers compare cylinder sizes and refill prices, confirm whether they are in a delivery area, and place an order directly through WhatsApp instead of getting stuck in a heavyweight checkout flow they do not need.</p>
+                        <div class="project-tag"><i class="fas fa-briefcase"></i> Real business workflow • 500+ customers shown on live site</div>
+                        <p class="project-proof">Proof of value: a working public deployment, business pricing tables, delivery-zone guidance, refill reminders, and a flow optimized for mobile users who want to order fast rather than create accounts.</p>
                         <div class="featured-buttons">
                             <a href="https://thedimoganegas.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-external-link-alt"></i> Visit Live Site</a>
                             <a href="https://github.com/DitiroMoabelo/ThdimoganeGas" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-github"></i> View Code</a>
@@ -227,51 +238,39 @@
         <div class="container">
             <h2 class="section-title">My Projects</h2>
             <div class="projects-grid">
-                <!-- Project 1: BirdTrail -->
+                <!-- Project 1: IT Asset & Helpdesk System -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="assets/images/birdtrail.jpeg" alt="BirdTrail Android App" loading="lazy">
+                        <img src="assets/images/project-preview-pending.svg" loading="lazy" alt="IT Asset and Helpdesk System preview">
                     </div>
                     <div class="project-content">
-                        <h3>BirdTrail — Android Bird Tracking App</h3>
-                        <p class="project-tech">Kotlin, Firebase, Google Maps API</p>
-                        <p>An Android app for birdwatchers. Users sign up through Firebase Authentication, find sanctuary hotspots on a Google Maps explore view with custom markers, and log sightings with a photo, description and location that upload to Firebase Storage and Realtime Database. A RecyclerView gallery lists their history, and a badge system unlocks achievements as they record more sightings.</p>
-                        <div class="project-buttons">
-                            <a href="https://github.com/DitiroMoabelo/Birdtrail-android-app" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> View Code</a>
-                        </div>
+                        <h3>IT Asset &amp; Helpdesk System</h3>
+                        <p class="project-tech">React, TypeScript, Spring Boot, PostgreSQL, JWT, Flyway</p>
+                        <p>An internal IT operations platform for support teams: staff submit tickets, technicians manage work, and IT tracks hardware assets, assignments, and status history. Built as a realistic MVP with role-based login, asset register, ticket workflows, and a troubleshooting knowledge base.</p>
+                        <div class="project-tag"><i class="fas fa-tools"></i> MVP built • Support + hardware + development</div>
+                        <p class="project-proof">What it proves: full-stack delivery, JWT auth and roles, controlled ticket workflow, asset assignment rules, seed data, and support logic that goes beyond generic CRUD screens. Local demo ready; deployment is the next step.</p>
                     </div>
                 </div>
 
-                <!-- Project 2: E-Commerce -->
+                <!-- Project 2: TwiceAsBooks -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://image.thum.io/get/width/1200/https://twiceasbooks.great-site.net/login.php" loading="lazy" alt="TwiceAsBooks E-Commerce Platform Screenshot">
+                        <img src="assets/images/twiceasbooks-screenshot.jpg" width="900" height="900" loading="lazy" decoding="async" alt="TwiceAsBooks E-Commerce Platform Screenshot">
                     </div>
                     <div class="project-content">
                         <h3>TwiceAsBooks — Online Bookstore</h3>
                         <p class="project-tech">PHP, MySQL, JavaScript</p>
-                        <p>A full-stack online bookstore, live on shared hosting. Customers register, search the catalogue, add books to a cart and check out; an admin area behind authentication handles products, orders, users and customer enquiries, backed by a MySQL schema.</p>
+                        <p>A full-stack bookstore built around both customer and admin workflows. Shoppers can register, search the catalogue, add books to a cart, and place orders, while the admin side manages products, users, orders, and incoming customer enquiries through one PHP/MySQL application.</p>
+                        <div class="project-tag"><i class="fas fa-layer-group"></i> Front office + admin back office</div>
+                        <p class="project-proof">What it proves: multi-page PHP application structure, MySQL-backed data handling, authentication, cart and checkout logic, and an operations side that goes beyond a simple product listing site.</p>
                         <div class="project-buttons">
-                            <a href="https://twiceasbooks.great-site.net/login.php" target="_blank" rel="noopener noreferrer" class="btn btn-small btn-outline"><i class="fas fa-play-circle"></i> Visit Website</a>
+                            <a href="https://twiceasbooks.great-site.net/" target="_blank" rel="noopener noreferrer" class="btn btn-small btn-outline"><i class="fas fa-play-circle"></i> Visit Website</a>
                             <a href="https://github.com/DitiroMoabelo/TwiceAsBooks/tree/main/ST10087657%26%20ST10033503_WEDE6021_POE" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> View Code</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 3: Gift of the Givers -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/project-preview-pending.svg" loading="lazy" alt="Gift of the Givers Web App - screenshot not yet available">
-                    </div>
-                    <div class="project-content">
-                        <h3>Gift of the Givers Web App</h3>
-                        <p class="project-tech">PHP, MySQL · WAMP</p>
-                        <p>Web application for logging and managing incident reports, with authenticated user accounts controlling who can submit and review them.</p>
-                        <div class="project-tag"><i class="fas fa-clock"></i> In development</div>
-                    </div>
-                </div>
-
-                <!-- Project 4: MediBook -->
+                <!-- Project 3: MediBook -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="assets/images/project-preview-pending.svg" loading="lazy" alt="MediBook Website Platform - screenshot not yet available">
@@ -279,24 +278,29 @@
                     <div class="project-content">
                         <h3>MediBook — Hospital Booking System</h3>
                         <p class="project-tech">Java, Spring Boot, Spring Security, JPA, Thymeleaf, Gemini API</p>
-                        <p>A hospital appointment platform built with a team. Spring Security drives role-based access across three separate areas: patients book and track appointments, doctors manage schedules and prescribe medications, and admins oversee doctors and feedback. Also handles password resets over email, and an AI recommendation feature that calls Google's Gemini API to point patients toward the right service.</p>
+                        <p>A team-built hospital booking platform with clear role separation. Spring Security handles access across patient, doctor, and admin areas; JPA models appointments, medications, users, and feedback; and the system includes password resets over email plus an AI recommendation feature that uses the Gemini API to guide patients toward the right service.</p>
                         <div class="project-tag"><i class="fas fa-cloud"></i> Deployment offline</div>
+                        <p class="project-proof">What it proves: Java backend depth, authentication and authorization, data modelling, server-rendered application structure, and feature scope beyond a basic CRUD system. The remaining weakness is deployment, not technical depth.</p>
                         <div class="project-buttons">
                             <a href="https://github.com/DitiroMoabelo/Applications" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> View Code</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 5: Recipe Application -->
+                <!-- Project 4: BirdTrail -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="assets/images/project-preview-pending.svg" loading="lazy" alt="Recipe Application - screenshot not yet available">
+                        <img src="assets/images/birdtrail.jpeg" alt="BirdTrail Android App" width="739" height="1600" loading="lazy" decoding="async">
                     </div>
                     <div class="project-content">
-                        <h3>Recipe Application</h3>
-                        <p class="project-tech">Coming Soon</p>
-                        <p>A recipe discovery and meal-planning app where users can browse, save, and share recipes with ingredients and step-by-step instructions.</p>
-                        <div class="project-tag"><i class="fas fa-clock"></i> In development</div>
+                        <h3>BirdTrail — Android Bird Tracking App</h3>
+                        <p class="project-tech">Kotlin, Firebase, Google Maps API</p>
+                        <p>An Android field app for birdwatchers. I used Firebase Authentication for sign-in, Google Maps for sanctuary discovery, and Firebase Storage plus Realtime Database for photo-backed sightings. The app then turns those records into a RecyclerView history and a small achievement system that rewards continued use.</p>
+                        <div class="project-tag"><i class="fas fa-mobile-alt"></i> Code proof available • Demo polish still needed</div>
+                        <p class="project-proof">What it proves: mobile state handling, image upload flows, location-aware features, Firebase integration, and a complete user journey from registration to recorded sightings.</p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/DitiroMoabelo/Birdtrail-android-app" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> View Code</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -305,6 +309,8 @@
 
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
+        <div class="star-field" aria-hidden="true" data-parallax="18"></div>
+        <div class="planet planet--ringed planet-4" aria-hidden="true" data-parallax="50"></div>
         <div class="container">
             <h2 class="section-title">Skills & Technologies</h2>
             <div class="skills-container">
@@ -324,6 +330,7 @@
                         <span class="skill-chip"><i class="fab fa-html5"></i> HTML</span>
                         <span class="skill-chip"><i class="fab fa-css3-alt"></i> CSS</span>
                         <span class="skill-chip"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="skill-chip"><i class="fab fa-react"></i> React</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -337,6 +344,7 @@
                     <h3>Databases</h3>
                     <div class="skill-chips">
                         <span class="skill-chip"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="skill-chip"><i class="fas fa-database"></i> PostgreSQL</span>
                         <span class="skill-chip"><i class="fas fa-fire"></i> Firebase</span>
                     </div>
                 </div>
@@ -526,6 +534,8 @@
         <div class="contact-background">
             <div class="flower-decoration flower-4"></div>
             <div class="flower-decoration flower-5"></div>
+            <div class="star-field" aria-hidden="true" data-parallax="18"></div>
+            <div class="planet planet-3" aria-hidden="true" data-parallax="55"></div>
         </div>
         <div class="container">
             <h2 class="section-title script-font">Let's Connect</h2>
@@ -560,6 +570,13 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-moons" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <p>&copy; 2025 Ditiro Moabelo | Software Developer</p>
         </div>
     </footer>

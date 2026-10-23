@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: hustlelane-api
+    runtime: node
+    plan: free
+    rootDir: apps/hustlelane/server
+    buildCommand: npm install && cd ../client && npm install && VITE_BASE=/ VITE_API_URL=/api npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: USE_MEMORY_DB
+        value: "true"
+      - key: BOOT_SEED
+        value: "true"
+      - key: SERVE_CLIENT
+        value: "true"
+      - key: ENABLE_DEMO_ACCOUNTS
+        value: "true"
+      - key: CLIENT_URL
+        value: https://ditiromoabelo.github.io
+      - key: ADZUNA_COUNTRY
+        value: za
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADZUNA_APP_ID
+        sync: false
+      - key: ADZUNA_APP_KEY
+        sync: false

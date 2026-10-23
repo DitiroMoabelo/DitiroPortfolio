@@ -1,32 +1,22 @@
-# Environment variables
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Env / secrets
 .env
 .env.local
-.env.*.local
+**/.env
+!**/.env.example
 
-# IDE & Editor
-.vscode/
-.cursor/
-*.code-workspace
-
-# OS
-.DS_Store
-Thumbs.db
-.AppleDouble
-.LSOverride
-
-# Node (if using build tools)
-node_modules/
-npm-debug.log
-yarn-error.log
-
-# Build & Temp
+# Build
 dist/
 build/
+**/.DS_Store
+
+# Logs
 *.log
+npm-debug.log*
 
-# Local dev scripts (optional - remove if you want to push)
-# add-images.ps1
-# start-server.ps1
-
-# Sensitive files (add specific files or patterns)
-# Example: *.key, *.pem, secrets.json
+# Editor
+.vscode/*
+!.vscode/settings.json
